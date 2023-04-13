@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <form method="post" action="{% url 'contact' %}">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Send</button>
+  </form>
+  {% if contacts %}
+    <h2>Contacts</h2>
+    <ul>
+      {% for contact in contacts %}
+        <li>{{ contact.name }} - {{ contact.email }} - {{ contact.message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<h1>Contact List</h1>
+<ul>
+    {% for contact in object_list %}
+    <li> {{ contact.name }} - <a href="{% url 'contact_edit' contact.pk %}">edit</a> - <a href="{% url 'contact_delete' contact.pk %}">delete</a> </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'contact_new' %}">Add Contact</a>
+</body>
+</html>
